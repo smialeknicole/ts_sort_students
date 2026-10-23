@@ -1,4 +1,3 @@
-
 export interface Student {
   name: string;
   surname: string;
@@ -51,50 +50,32 @@ export function sortStudents(
 
   switch (sortBy) {
     case SortType.Name:
-      copy.sort((a, b) => sortWords(
-        a,
-        b,
-        (student) => student.name,
-        direction,
-      ));
+      copy.sort((a, b) => sortWords(a, b, (student) => student.name,
+        direction));
       break;
 
     case SortType.Surname:
-      copy.sort((a, b) => sortWords(
-        a,
-        b,
-        (student) => student.surname,
-        direction,
-      ));
+      copy.sort((a, b) => sortWords(a, b, (student) => student.surname,
+        direction));
       break;
 
     case SortType.Age:
-      copy.sort((a, b) => sortNumbers(
-        a,
-        b,
-        (student) => student.age,
-        direction,
-      ));
+      copy.sort((a, b) => sortNumbers(a, b, (student) => student.age,
+        direction));
       break;
 
     case SortType.Married:
-      copy.sort((a, b) => sortNumbers(
-        a,
-        b,
+      copy.sort((a, b) => sortNumbers(a, b,
         (student) => Number(student.married),
-        direction,
-      ));
+        direction));
       break;
 
     case SortType.AverageGrade:
       copy.sort((a, b) => sortNumbers(
         a,
         b,
-        (student) => student.grades.reduce(
-          (sum, grade) => sum + grade,
-          0,
-        ) / student.grades.length,
-        direction,
+        (student) => student.grades.reduce((sum, grade) => sum + grade, 0)
+          / student.grades.length, direction,
       ));
       break;
 
