@@ -23,7 +23,13 @@ export function sortStudents(
   order: SortOrder,
 ): Student[] {
   const copy = [...students];
-  const direction = order === 'asc' ? 1 : -1;
+  let direction: number;
+
+  if (order === 'asc') {
+    direction = 1;
+  } else {
+    direction = -1;
+  }
 
   function sortNumbers(
     a: Student,
