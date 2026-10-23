@@ -104,4 +104,3 @@ export function sortStudents(
 
   return copy;
 }
-// test
